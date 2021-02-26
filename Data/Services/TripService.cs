@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Linq;
 
 namespace Trips.Data
 {
@@ -6,27 +7,32 @@ namespace Trips.Data
     {
         public void AddTrip(Trip trip)
         {
-            throw new System.NotImplementedException();
+            Data.Trips.Add(trip);
         }
 
         public void DeleteTrip(int tripId)
         {
-            throw new System.NotImplementedException();
+            var trip = GetTripById(tripId);
+            Data.Trips.Remove(trip);
         }
 
         public List<Trip> GetAllTrips()
         {
-            throw new System.NotImplementedException();
+            return Data.Trips;
         }
 
         public Trip GetTripById(int tripId)
         {
-            throw new System.NotImplementedException();
+            return Data.Trips.FirstOrDefault(t => t.Id == tripId);
         }
 
-        public void UpdateTrip(int tripId, Trip trip)
+        public void UpdateTrip(int tripId, Trip updatedTrip)
         {
-            throw new System.NotImplementedException();
+            var trip = GetTripById(tripId);
+            trip.Name = updatedTrip.Name;
+            trip.Description = updatedTrip.Description;
+            trip.DateStarted = updatedTrip.DateStarted;
+            trip.DateCompleted = updatedTrip.DateCompleted;
         }
     }
 }
