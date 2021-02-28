@@ -54,7 +54,6 @@ export class Trips extends Component {
                             <td>{this.toLocalDateFormat(trip.dateCompleted)}</td>
                             <td> - </td>
                         </tr>
-
                         ))
                     }
 
